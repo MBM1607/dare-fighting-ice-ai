@@ -1,7 +1,8 @@
 from pyftg.ai_interface import AIInterface
 from pyftg.struct import *
 
-class KickAI(AIInterface):
+
+class BAISIK(AIInterface):
     def __init__(self):
         super().__init__()
         self.blind_flag = True
@@ -20,7 +21,9 @@ class KickAI(AIInterface):
     def input(self) -> Key:
         return self.key
 
-    def get_information(self, frame_data: FrameData, is_control: bool, non_delay_frame_data: FrameData):
+    def get_information(
+        self, frame_data: FrameData, is_control: bool, non_delay_frame_data: FrameData
+    ):
         self.frame_data = frame_data
         self.cc.set_frame_data(self.frame_data, self.player)
 
@@ -29,6 +32,7 @@ class KickAI(AIInterface):
 
     def get_audio_data(self, audio_data: AudioData):
         self.audio_data = audio_data
+        print(f"{audio_data=}")
 
     def processing(self):
         if self.frame_data.empty_flag or self.frame_data.current_frame_number <= 0:
@@ -41,7 +45,7 @@ class KickAI(AIInterface):
             self.cc.skill_cancel()
 
             self.cc.command_call("B")
-    
+
     def round_end(self, round_result: RoundResult):
         print(round_result.remaining_hps[0])
         print(round_result.remaining_hps[1])
