@@ -4,7 +4,7 @@ import logging
 from pyftg.gateway import Gateway
 
 from BAISIK import BAISIK
-from DisplayInfo import DisplayInfo
+from Randman import Randman
 
 
 def start_game(port: int):
@@ -12,10 +12,10 @@ def start_game(port: int):
     character = "ZEN"
     game_num = 1
     agent1 = BAISIK()
-    agent2 = DisplayInfo()
+    agent2 = Randman()
     gateway.register_ai("BAISIK", agent1)
-    gateway.register_ai("DisplayInfo", agent2)
-    gateway.run_game([character, character], ["BAISIK", "DisplayInfo"], game_num)
+    gateway.register_ai("Randman", agent2)
+    gateway.run_game([character, character], ["BAISIK", "Randman"], game_num)
     gateway.close()
 
 

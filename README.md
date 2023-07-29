@@ -18,8 +18,10 @@ kick the opponent, and if it is not possible, it will try to move closer to the 
 
 - First, install our interface on implementing python AI using `pip`.
 
-```
+```bash
 pip install pyftg
+pip install numpy
+pip install --upgrade google-api-python-client
 ```
 
 ## Instruction on using Main_PyAIvsPyAI.py
@@ -28,7 +30,7 @@ pip install pyftg
 - If both of AI are implemented in Python, modify lines 11 to 15 of `Main_PyAIvsPyAI.py`.
 - The following example shows how to use BAISIK as player 1 and DisplayInfo as player 2.
 
-```
+```python
 agent1 = BAISIK()
 agent2 = DisplayInfo()
 gateway.register_ai("BAISIK", agent1)
@@ -38,7 +40,7 @@ gateway.run_game([character, character], ["BAISIK", "DisplayInfo"], game_num)
 
 - Execute `Main_PyAIvsPyAI.py` to connect to the DareFightingICE platform where `port` is the exposed port of DareFightingICE (optional).
 
-```
+```bash
 python Main_PyAIvsPyAI.py --port {port}
 ```
 
@@ -48,6 +50,6 @@ python Main_PyAIvsPyAI.py --port {port}
 - To run a single instance of the Python AI, refer to `Main_SinglePyAI.py`.
 - Execute `Main_SinglePyAI.py`, the following example shows how to use BAISIK as player 1 and not select anything for player 2.
 
-```
+```bash
 python Main_SinglePyAI.py --a1 BAISIK
 ```
